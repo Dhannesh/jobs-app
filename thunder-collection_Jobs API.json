@@ -1,0 +1,188 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Jobs API",
+    "dateExported": "2024-01-17T01:37:59.369Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "14369623-e41d-459a-90fc-736f70a52ba8",
+            "colId": "77a92017-5b63-4e2b-aceb-d1d6855aa3ae",
+            "containerId": "",
+            "name": "Register User",
+            "url": "{{URL}}/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-01-11T15:32:36.628Z",
+            "modified": "2024-01-14T05:18:47.628Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"happy@gmail.com\",\n  \"name\":\"Praharsh Shree\",\n  \"password\":\"12345\",\n  \"mobile\":\"8439516563\"\n}",
+                "form": []
+            },
+            "tests": [],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "const jsonData = tc.response.json",
+                            "tc.setVar(\"accessToken\",jsonData.token,'local')",
+                            ""
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "73744d9e-c05b-41ec-afa0-6d6631db14f8",
+            "colId": "77a92017-5b63-4e2b-aceb-d1d6855aa3ae",
+            "containerId": "",
+            "name": "Login User",
+            "url": "{{URL}}/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-11T15:37:04.931Z",
+            "modified": "2024-01-14T05:08:55.404Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": " {\n \"email\":\"dhannesh@gmail.com\",\n  \"password\":\"12345\"\n }",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": ""
+                }
+            ],
+            "postReq": {
+                "inlineScripts": [
+                    {
+                        "script": [
+                            "const jsonData = tc.response.json",
+                            "tc.setVar(\"accessToken\",jsonData.token,'local')",
+                            ""
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "d7bb7359-11d4-4ea5-983f-34b37f3703f4",
+            "colId": "77a92017-5b63-4e2b-aceb-d1d6855aa3ae",
+            "containerId": "",
+            "name": "Create Job",
+            "url": "{{URL}}/jobs/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-11T15:39:30.364Z",
+            "modified": "2024-01-14T05:19:11.992Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWEwOWE4MTMwNTMxODMwZmU5NGM3MmEiLCJuYW1lIjoiRGhhbmVzaHdhciBLdW1hciIsImlhdCI6MTcwNTIwNTc1NSwiZXhwIjoxNzA3Nzk3NzU1fQ.UPywZK9vLLnfVJ60ZvLYa0U5J2fti1zjIeiOc9YSzZk",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"company\":\"netflix\",\n  \"position\":\"backend developer\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{accessToken}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "37c8cad9-b340-43da-909a-40be6f5e5cff",
+            "colId": "77a92017-5b63-4e2b-aceb-d1d6855aa3ae",
+            "containerId": "",
+            "name": "Get all Jobs",
+            "url": "{{URL}}/jobs/",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-01-11T15:40:45.136Z",
+            "modified": "2024-01-14T04:55:11.532Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWEwOWE4MTMwNTMxODMwZmU5NGM3MmEiLCJuYW1lIjoiRGhhbmVzaHdhciBLdW1hciIsImlhdCI6MTcwNTIwNTc1NSwiZXhwIjoxNzA3Nzk3NzU1fQ.UPywZK9vLLnfVJ60ZvLYa0U5J2fti1zjIeiOc9YSzZk",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{accessToken}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4e6e68c0-c290-45cc-afb1-cc4227fcfe6a",
+            "colId": "77a92017-5b63-4e2b-aceb-d1d6855aa3ae",
+            "containerId": "",
+            "name": "Update Job",
+            "url": "{{URL}}/jobs/65a3610824dd1e21a10e0ab0",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2024-01-11T15:41:11.318Z",
+            "modified": "2024-01-14T05:47:56.181Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"company\":\"netflix\",\n  \"position\":\"frontend\",\n  \"status\":\"interview\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{accessToken}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "aa67a156-ebf4-453c-889d-4755624c93f1",
+            "colId": "77a92017-5b63-4e2b-aceb-d1d6855aa3ae",
+            "containerId": "",
+            "name": "Remove Job",
+            "url": "{{URL}}/jobs/65a3610824dd1e21a10e0ab0",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-01-11T15:42:15.595Z",
+            "modified": "2024-01-14T05:42:48.010Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{accessToken}}"
+            },
+            "tests": []
+        },
+        {
+            "_id": "49d2a6a5-2810-4f25-8d4f-914cec7bfe63",
+            "colId": "77a92017-5b63-4e2b-aceb-d1d6855aa3ae",
+            "containerId": "",
+            "name": "Get Job",
+            "url": "{{URL}}/jobs/65a3610824dd1e21a10e0ab0",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-01-11T15:43:19.848Z",
+            "modified": "2024-01-14T05:22:37.294Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "{{accessToken}}"
+            },
+            "tests": []
+        }
+    ]
+}

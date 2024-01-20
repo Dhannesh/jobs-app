@@ -28,7 +28,6 @@ const limiter = rateLimit({
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
   // store: ... , // Use an external store for consistency across multiple server instances.
 });
-q1;
 app.use(limiter);
 app.use(express.json());
 app.use(helmet());
